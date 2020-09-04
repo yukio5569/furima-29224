@@ -17,6 +17,7 @@
 
 - has_many :items
 - has_one : buyer
+- has_many :shippingaddresss
 
 ## items テーブル
 
@@ -37,13 +38,12 @@
 
 - belongs_to :user
 - belongs_to :buyer
+- has_many: shippingaddresss
 
 ## buyers テーブル
 
 | Column                | Type    | Options     |
 | ----------------------| ------- | ----------- |
-| user_id               | string  | null: false |
-| item_id               | string  | null: false |
 | postal code           | string  | null: false |
 | prefectures_id        | integer | null: false |
 | city                  | string  | null: false |
@@ -55,5 +55,20 @@
 
 - belongs_to :user
 - has_many :items
+- has_one :shippingaddress
 
+## shippingaddresss テーブル
+
+| Column   | Type    | Options     |
+| ---------| ------- | ----------- |
+| user_id  | integer | null: false |
+| item_id  | integer | null: false |
+| buyer_id | integer | null: false |
+
+
+### Association
+
+- belongs_to :user
+- berongs_to :items
+- belongs_to :buyer
 
