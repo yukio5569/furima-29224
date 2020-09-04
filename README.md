@@ -20,14 +20,17 @@
 
 ## item テーブル
 
-| Column             | Type    | Options     |
-| -------------------| ------- | ----------- |
-| item name          | string  | null: false |
-| image              | string  | null: false |
-| explanation        | text    | null: false |
-| price              | integer | null: false |
-| item details       | string  | null: false |
-| regarding delivery | integer | null: false |
+| Column       | Type    | Options     |
+| -------------| ------- | ----------- |
+| name         | string  | null: false |
+| image        | string  | null: false |
+| explanation  | text    | null: false |
+| price        | integer | null: false |
+| category     | string  | null: false |
+| status       | string  | null: false |
+| delivery fee | string  | null: false |
+| prefectures  | string  | null: false |
+| days         | date    | null: false |
 
 ### Association
 
@@ -38,10 +41,8 @@
 
 | Column                | Type   | Options     |
 | ----------------------| ------ | ----------- |
-| expiration date month | string | null: false |
-| expiration date year  | string | null: false |
-| security code         | string | null: false |
 | postal code           | string | null: false |
+| prefectures           | string | null: false |
 | city                  | string | null: false |
 | address               | string | null: false |
 | building name         | string |             |
