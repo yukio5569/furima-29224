@@ -18,6 +18,8 @@
 - has_many :items
 - has_many : buyers
 
+
+
 ## items テーブル
 
 | Column          | Type    | Options           |
@@ -32,10 +34,12 @@
 | prefectures_id  | integer | null: false       |
 | days_id         | integer | null: false       |
 
+
 ### Association
 
 - belongs_to :user
 - has_one :buyer
+
 
 ## buyers テーブル
 
@@ -61,10 +65,11 @@
 | city                  | string  | null: false       |
 | address               | string  | null: false       |
 | building_name         | string  |                   |
-| phone_number          | string  | null: false        |
+| phone_number          | string  | null: false       |
 
 
 
 ### Association
 
 - belongs_to :buyer
+
