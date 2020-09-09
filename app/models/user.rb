@@ -14,7 +14,6 @@ class User < ApplicationRecord
     validates :email, uniqueness: true
     validates :password, uniqueness: true
     validates :password, format: { with: /[a-z\d]{6,}/i}
-    validates :password, uniqueness: true
     validates :family_name, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: "is invalid. Input full-width characters."}
     validates :last_name, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: "is invalid. Input full-width characters."}
     validates :family_name_kana, format: { with: /\A[ァ-ヶー－]+\z/, message: "is invalid. Input full-width katakana characters."}

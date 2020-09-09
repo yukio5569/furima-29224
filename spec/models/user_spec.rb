@@ -15,6 +15,10 @@ RSpec.describe User, type: :model do
         @user.password_confirmation = "a00000"
         expect(@user).to be_valid
       end
+      it "emailに@が含まれていれば登録ができる" do
+        @user.email = "email@com"
+        expect(@user).to be_valid
+      end
       it "family_nameが全角（漢字・ひらがな・カタカナ）であれば登録できる" do
         @user.family_name = "漢字ひらがなカタカナ"
         expect(@user).to be_valid
@@ -43,6 +47,11 @@ RSpec.describe User, type: :model do
         @user.email = ""
         @user.valid?
         expect(@user.errors.full_messages).to include("Email can't be blank")
+      end
+      it "emailに@が含まれていないと登録が出来ない" do
+        @user.email = "emailcom"
+        @user.valid？
+        expect(@user.errors.full_messages).to include("メールアドレスに「＠」を挿入してください。「#{@user.email}」内に＠がありません。")
       end
       it "重複したemailが存在する場合登録できない" do
         @user.save
