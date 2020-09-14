@@ -2,9 +2,9 @@ class ItemsController < ApplicationController
 
   before_action :user_signin, only: [:new]
   
-  # def index
-  #   @items = Item.all
-  # end
+   def index
+     @items = Item.order("created_at DESC")
+   end
 
   def new
     @item = Item.new
