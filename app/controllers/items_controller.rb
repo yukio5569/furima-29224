@@ -21,13 +21,18 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-   
   end
 
   def edit
   end
 
   def show
+  end
+
+  def update
+    item = Item.find(params[:id])
+    item.update(item_params)
+    redirect_to items_path
   end
 
   private
