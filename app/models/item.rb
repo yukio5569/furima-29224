@@ -7,7 +7,7 @@ class Item < ApplicationRecord
     validates :category_id
     validates :status_id
     validates :delivery_fee_id
-    validates :prefectures_id
+    validates :prefecture_id
     validates :days_id
   end
  
