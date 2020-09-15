@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2020_09_10_085622) do
     t.integer "category_id", null: false
     t.integer "status_id", null: false
     t.integer "delivery_fee_id", null: false
-    t.integer "prefectures_id", null: false
+    t.integer "prefecture_id", null: false
     t.integer "days_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2020_09_10_085622) do
   create_table "shippingaddressses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "buyer_id"
     t.string "postal_code", default: "", null: false
-    t.integer "prefectures_id", null: false
+    t.integer "prefecture_id", null: false
     t.string "city", default: "", null: false
     t.string "address", default: "", null: false
     t.string "building_name", default: ""
