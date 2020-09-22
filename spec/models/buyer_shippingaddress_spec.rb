@@ -10,14 +10,6 @@ RSpec.describe BuyerShippingaddress, type: :model do
       it "number, exp_month, exp_year, cvc, postal_code, prefecture_id, city, address, phone_numberが存在すれば登録できる" do
         expect(@buyer_shippingaddress).to be_valid
       end
-      it "郵便番号にハイフンが含まれていれば購入できる" do
-        @buyer_shippingaddress.postal_code = "123-4567"
-        expect(@buyer_shippingaddress).to be_valid
-      end
-      it "電話番号が11桁以内であれば購入できる" do
-        @buyer_shippingaddress.phone_number = "09012345678"
-        expect(@buyer_shippingaddress).to be_valid
-      end
       it "building_nameは空でも購入できる" do
         @buyer_shippingaddress.building_name = ""
         expect(@buyer_shippingaddress).to be_valid
@@ -69,6 +61,11 @@ RSpec.describe BuyerShippingaddress, type: :model do
         @buyer_shippingaddress.phone_number = ""
         @buyer_shippingaddress.valid？
         expect(@buyer_shippingaddress.errors.full_messages).to include("Phone number can't be blank")
+      end
+      it "phone_numberにハイフンが含まれている場合は登録が出来ない" do
+        @buyer_shippingaddress.phone_number = "090-123-456"
+        @buyer_shippingaddress.valid？
+        expect(@buyer_shippingaddress.errors.full_messages).to include("ハイフンは含めないでください")
       end
     end
   end

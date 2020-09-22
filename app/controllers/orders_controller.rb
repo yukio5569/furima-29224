@@ -1,13 +1,11 @@
 class OrdersController < ApplicationController
 before_action :move_to_index 
-
+before_action :set_item, only: [:index, :create]
   def index
-    @item = Item.find(params[:item_id])
     @shippingaddress = BuyerShippingaddress.new
   end
   
   def create
-    @item = Item.find(params[:item_id])
     @shippingaddress = BuyerShippingaddress.new(shippingaddress_params)
     if @shippingaddress.valid?
       pay_item
@@ -39,5 +37,8 @@ before_action :move_to_index
       redirect_to root_path
     end
   end
-
+  
+  def set_item
+    @item = Item.find(params[:item_id])
+  end
 end
