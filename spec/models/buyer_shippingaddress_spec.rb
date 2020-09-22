@@ -7,7 +7,7 @@ RSpec.describe BuyerShippingaddress, type: :model do
     end
 
     context '商品購入がうまくいくとき' do
-      it "number, exp_month, exp_year, cvc, postal_code, prefecture_id, city, address, phone_numberが存在すれば登録できる" do
+      it "number, exp_month, exp_year, cvc, postal_code, prefecture_id, city, address, phone_number, tokenが存在すれば登録できる" do
         expect(@buyer_shippingaddress).to be_valid
       end
       it "building_nameは空でも購入できる" do
@@ -17,6 +17,11 @@ RSpec.describe BuyerShippingaddress, type: :model do
     
 
     context '商品購入がうまくいかないとき' do
+      it "tokenが空だと購入できない" do
+        @buyer_shippingaddress.token = ""
+        @buyer_shippingaddress.valid?
+        expect(@buyer_shippingaddress.errors.full_messages).to include("Token can't be blank")
+      end
       it "numberが空だと購入できない" do
         @buyer_shippingaddress.number = ""
         @buyer_shippingaddress.valid?
@@ -66,6 +71,11 @@ RSpec.describe BuyerShippingaddress, type: :model do
         @buyer_shippingaddress.phone_number = "090-123-456"
         @buyer_shippingaddress.valid？
         expect(@buyer_shippingaddress.errors.full_messages).to include("ハイフンは含めないでください")
+      end
+      it "phone_numberが12桁以上だと登録が出来ない" do
+        @buyer_shippingaddress.phone_number = "012345678912"
+        @buyer_shippingaddress.valid？
+        expect(@buyer_shippingaddress.errors.full_messages).to include("電話番号は12桁以上入力できません")
       end
     end
   end

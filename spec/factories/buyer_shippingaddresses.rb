@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :buyer_shippingaddress do
-
+    token {'jiofehge595289jt83ujfg8h8j190p2jmgr'}
     number { '1234567890123456' }
     exp_month { '31' }
     exp_year { '12' }
