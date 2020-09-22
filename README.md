@@ -55,7 +55,7 @@
 - belongs_to :item
 - has_one :shippingaddress
 
-## shippingaddresss テーブル
+## shippingaddressses テーブル
 
 | Column                | Type    | Options           |
 | ----------------------| ------- | ----------------- |
