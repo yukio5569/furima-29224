@@ -3,7 +3,7 @@ class Item < ApplicationRecord
     validates :name
     validates :image
     validates :explanation
-    validates :price, inclusion: { in: 300..9_999_999 , message: "Price Out of setting range"}
+    validates :price, inclusion: { in: 300..9_999_999 , message: "を設定範囲内の半角数字で入力してください"}
     validates :category_id
     validates :status_id
     validates :delivery_fee_id
